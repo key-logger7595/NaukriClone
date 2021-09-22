@@ -1,0 +1,134 @@
+.jobTitle{
+    display:block;
+    position: absolute;
+    width: 201px;
+    height: 26px;
+    color: var(--unnamed-color-ffffff);
+    text-align: left;
+    font: normal normal medium 22px/27px Helvetica Neue;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;
+    top:123px;
+    left:172px;
+}
+.flexContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height:auto;
+    width:860px;
+    position: absolute;
+    top:180px;
+    left:272px;
+    gap:1.2rem;
+    justify-content: center;
+}
+.card{
+    height: 162px;
+    position: relative;
+    width: 260;
+    background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #557DA526;
+    border-radius: 5px;
+    opacity: 1;
+}
+.title{
+width: 121px;
+height: 20px;
+position: relative;
+color: var(--unnamed-color-303f60);
+text-align: left;
+font: normal normal normal 17px/20px Helvetica Neue;
+letter-spacing: 0px;
+color: #303F60;
+opacity: 1;
+top:-17px;
+left:8px;
+white-space: nowrap;
+}
+
+.description{
+    width: 229px;
+    height: 64px;
+    position: relative;
+    color: var(--unnamed-color-303f60);
+    text-align: left;
+    font: normal normal normal 14px/16px Helvetica Neue;
+    letter-spacing: 0px;
+    color: #303F60;
+    opacity: 0.8;
+    top:-44px;
+    left:8px;
+}
+.card span {
+    display: inline-block;
+    position: relative;
+}
+
+
+.Icon {
+display: inline-block;
+position:relative;
+width: 10px;
+height: 15px;
+border: 2px solid var(--unnamed-color-43afff);
+opacity: 1;
+color:#43AFFF;
+top:-71px;
+left:2px;
+}
+.location{
+    display: inline-block;
+    position: relative;
+    width: 64px;
+    height: 16px;
+    color: var(--unnamed-color-303f60);
+    text-align: left;
+    font: normal normal normal 14px/16px Helvetica Neue;
+    letter-spacing: 0px;
+    color: #303F60;
+    opacity: 0.8; 
+    top:-78px;
+    left:17px;
+}
+.viewApplications{
+  display: inline-block;
+  width: 125px;
+  height: 32px;
+  background: #43AFFF33 0% 0% no-repeat padding-box;
+  border-radius: 5px;
+  opacity: 1;
+  position:relative;
+  color: var(--unnamed-color-303f60);
+  text-align: left;
+  font: normal normal normal 12px/14px Helvetica Neue;
+  letter-spacing: 0px;
+  color: #303F60;
+  text-transform: capitalize;
+  opacity: 1;
+  top:-65px;
+  left:24px;
+}
+.viewApplications span {
+    position: absolute;
+    display: inline-block;
+    width: 95px;
+    height: 14px;
+    color: var(--unnamed-color-303f60);
+    text-align: left;
+    font: normal normal normal 12px/14px Helvetica Neue;
+    letter-spacing: 0px;
+    color: #303F60;
+    text-transform: capitalize;
+    opacity: 1;
+    top:10px;
+    left:15px;
+}
+
+h1{
+    position: absolute;
+    top:369px;
+    left:579px;
+}

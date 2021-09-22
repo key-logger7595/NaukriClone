@@ -1,24 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React, { useContext } from 'react';
+import {BrowserRouter as Router, Route,Switch,Redirect } from 'react-router-dom';
+import LoginPage from './pages/LoginPage';
+import ResetPasswordPage from './pages/ResetPasswordPage';
+import SignUpPage from  './pages/SignUpPage'; 
+import ForgetPasswordPage from './pages/ForgetPasswordPage';
+import LandingPage from './pages/Landing';
+import HomePage from './pages/HomePage';
+import PostPage from './pages/PostPage';
+import { AuthContext } from './store/auth-Context';
+//only do route rendering here 
 function App() {
+  const authContext = useContext(AuthContext);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+         <Route path="/" component={LandingPage} exact/>
+         <Route path="/forget" component={ForgetPasswordPage}/>
+         <Route path="/reset" component={ResetPasswordPage}/>
+         <Route path="/login">
+           {authContext.isLoggedIn && <Redirect to="/home"/>}
+           {!authContext.isLoggedIn && <LoginPage/>}
+         </Route>
+         <Route path="/Signup">
+          {authContext.isLoggedIn && <Redirect to="/home"/>}
+          {!authContext.isLoggedIn && <SignUpPage/>}
+         </Route>
+         <Route path="/home">
+          {authContext.isLoggedIn && <HomePage/>}
+          {!authContext.isLoggedIn && <Redirect to="/login"/>}
+         </Route>
+         <Route path="/post">
+         {authContext.isLoggedIn && <PostPage/>}
+          {!authContext.isLoggedIn && <Redirect to="/login"/>}
+         </Route>
+         <Route path='*'>
+          <Redirect to='/'/>
+        </Route>
+
+      </Switch>
+    </Router>
   );
 }
 
