@@ -1,3 +1,4 @@
+
 import React, { useContext } from 'react';
 import {BrowserRouter as Router, Route,Switch,Redirect } from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
@@ -8,6 +9,8 @@ import LandingPage from './pages/Landing';
 import HomePage from './pages/HomePage';
 import PostPage from './pages/PostPage';
 import { AuthContext } from './store/auth-Context';
+
+
 //only do route rendering here 
 function App() {
   const authContext = useContext(AuthContext);
@@ -17,7 +20,7 @@ function App() {
       <Switch>
          <Route path="/" exact>
            {authContext.isLoggedIn && <Redirect to="/home"/>}
-           {authContext.isLoggedIn && <LandingPage/>}
+           {!authContext.isLoggedIn && <LandingPage/>}
          </Route>
          <Route path="/forget" component={ForgetPasswordPage}/>
          <Route path="/reset" component={ResetPasswordPage}/>

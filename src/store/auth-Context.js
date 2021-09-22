@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { toast } from 'react-toastify';
+
 export const AuthContext = React.createContext({
   token:'',
   isLoggedIn:false,
@@ -33,6 +35,8 @@ export const AuthContextProvider = (props) =>{
     }
 
     const logoutHandler = ()=>{
+        toast.success(`You have Successfully Logged out`);
+
         setEmail(null);
         setToken(null);
         //Removing token from localStorage
