@@ -4,12 +4,16 @@ import Layout1 from '../UI/Layout1';
 import classes from './Home.module.css';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import NoJobs from './NoJobs';
+import Pagination from '../Pagination/Pagination';
 const Home = () => {
 
      const[jobs,setJobs] = useState([]);
      const[loading,setLoading] = useState(true);
      const[error,setError] = useState(null);
      const authCtx = useContext(AuthContext);
+     const[limit,setLimit] = useState(7);
+     const[currentPage,setCurrentPage] = useState(1);
+
 
      useEffect(()=>{
         //fetching jobs;
@@ -45,18 +49,34 @@ const Home = () => {
          })
      },[])
 
+    const changeCurrentPage = (pageNumber) => {
+        setCurrentPage(pageNumber);
+    }
+
     let h1 = <h1>Fetching jobs for You....</h1> ;  
     let error1 = <h1>{error}</h1>;
+
+
+    let fileterdJobs = jobs;
+    let numberofPage = Math.ceil(fileterdJobs.length / limit);
+        let pageNumberArr = []
+        for (let i = 0; i < numberofPage; i++) {
+            pageNumberArr.push(i + 1);
+        }
+        // impliment
+        let si = (currentPage - 1) * limit;
+        let eidx = si + limit;
+        fileterdJobs = fileterdJobs.slice(si, eidx);
+
+
     return (
-
-
         <Layout1>
           <h3 className={classes.jobTitle}>Jobs Posted by You</h3>  
           {loading && h1}
           {!loading && jobs.length===0 && !error  &&  <NoJobs/> }
          
          { !loading && <div className={classes.flexContainer}>
-              {jobs && jobs.map((card,index)=>{
+              { fileterdJobs && fileterdJobs.map((card,index)=>{
                   return (
                       <div className={classes.card} key={card.key}>
                           <h6 className={classes.title}>{card.title}</h6>
@@ -69,10 +89,11 @@ const Home = () => {
                           <span className={classes.viewApplications}> <span>View Applications</span></span>
                       </div>
                   )
-              })}
-               {!loading && error1}
-                  
+              })} 
            </div>}
+
+           <Pagination pageNumberArr={pageNumberArr} currentPage={currentPage} changeCurrentPage={changeCurrentPage} />
+           {!loading && error1}
 
         </Layout1>
     )

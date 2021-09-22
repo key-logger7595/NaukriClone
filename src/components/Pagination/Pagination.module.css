@@ -1,0 +1,30 @@
+.container {
+    position: absolute;
+    top:754px;
+    left:671px;
+}
+.square{
+    width: 120px;
+    height: 120px;
+    background: #ffffff;
+}
+li {
+    list-style-type: none;
+}
+.pagination {
+    display: inline-block;
+  }
+  
+  .pagination li {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    
+  }
+  
+  .pagination li.active {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .pagination li:hover:not(.active) {background-color: #ddd;}

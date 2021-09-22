@@ -15,7 +15,10 @@ function App() {
   return (
     <Router>
       <Switch>
-         <Route path="/" component={LandingPage} exact/>
+         <Route path="/" exact>
+           {authContext.isLoggedIn && <Redirect to="/home"/>}
+           {authContext.isLoggedIn && <LandingPage/>}
+         </Route>
          <Route path="/forget" component={ForgetPasswordPage}/>
          <Route path="/reset" component={ResetPasswordPage}/>
          <Route path="/login">
